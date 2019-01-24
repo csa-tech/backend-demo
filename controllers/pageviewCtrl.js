@@ -2,10 +2,10 @@ var mysql      = require('mysql');
 
 if(process.argv.indexOf('bypass-db')) {
   console.log("bypass-db")
-  function view(req, res, next) {
+  view = function(req, res, next) {
     res.status(200).send('view db');
   }
-  function add(req, res, next) {
+  add = function(req, res, next) {
     res.status(200).send('add db');
   }  
 } else {
@@ -21,7 +21,7 @@ if(process.argv.indexOf('bypass-db')) {
 
 
 
-  function view(req, res, next) {
+  view = function (req, res, next) {
     try {
       connection.query('SELECT * FROM rideshare.pageview;', function(err, rows, fields) { //这里写SQL query
         if (err) { throw err; } //出错时交给后面的finally去处理      
@@ -37,7 +37,7 @@ if(process.argv.indexOf('bypass-db')) {
   }
 
 
-  function add(req, res, next) {
+  add = function(req, res, next) {
     try {
       queryString = 'SELECT count FROM rideshare.pageview;'
       connection.query(queryString, function(err, rows, fields) {
