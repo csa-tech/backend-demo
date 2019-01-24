@@ -1,6 +1,7 @@
 var mysql      = require('mysql');
 
 if(process.argv.indexOf('bypass-db')) {
+  console.log("bypass-db")
   function view(req, res, next) {
     res.status(200).send('view db');
   }
@@ -8,7 +9,7 @@ if(process.argv.indexOf('bypass-db')) {
     res.status(200).send('add db');
   }  
 } else {
-
+  console.log("not bypass-db")
   var connection = mysql.createConnection({
     // 这里需要自己补全，否则上传到github会泄露
     host     : 'my***',
