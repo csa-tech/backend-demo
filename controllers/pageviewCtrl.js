@@ -1,15 +1,15 @@
 var mysql      = require('mysql');
 
-if(process.argv.indexOf('bypass-db')) {
-  console.log("bypass-db")
-  view = function(req, res, next) {
-    res.status(200).send('view db');
-  }
-  add = function(req, res, next) {
-    res.status(200).send('add db');
-  }  
-} else {
-  console.log("not bypass-db")
+// if(process.argv.indexOf('bypass-db')) {
+//   console.log("bypass-db")
+//   view = function(req, res, next) {
+//     res.status(200).send('view db');
+//   }
+//   add = function(req, res, next) {
+//     res.status(200).send('add db');
+//   }  
+// } else {
+//   console.log("not bypass-db")
   var connection = mysql.createConnection({
     // 这里需要自己补全，否则上传到github会泄露
     host     : 'my***',
@@ -62,5 +62,5 @@ if(process.argv.indexOf('bypass-db')) {
 
   // 前面我们定义了view, add两个函数，现在我们要将它们导出，以供routes使用
 
-}
+// }
 module.exports = { view, add }
