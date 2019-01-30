@@ -1,7 +1,19 @@
-运行前要先修改 controllers/pageviewCtrl.js 里的账户信息
+clone这些代码之后需要做的事：
 
-运行方法：
+1. `$ npm i` 
 
-1. $ npm i
+    安装dependencies
 
-2. $ npm start
+2. 新建`secret.json`文件，内容为
+
+  `{
+    "host": "my***",
+    "user": "CS***",
+    "password": "Cs***"
+  }`
+
+  '*' 请自行补全，参考陈昕语的文档
+
+3. `$ npm start`
+
+    启动程序
