@@ -1,16 +1,16 @@
 var mysql      = require('mysql');
 
 // Ignore these ===================================
-// if(process.argv.indexOf('bypass-db')) {
-//   console.log("bypass-db")
-//   view = function(req, res, next) {
-//     res.status(200).send('view db');
-//   }
-//   add = function(req, res, next) {
-//     res.status(200).send('add db');
-//   }  
-// } else {
-//   console.log("not bypass-db")
+if(process.argv.indexOf('bypass-db') || process.env.BYPASS_DB) {
+  console.log("bypass-db")
+  view = function(req, res, next) {
+    res.status(200).send('view db');
+  }
+  add = function(req, res, next) {
+    res.status(200).send('add db');
+  }  
+} else {
+  console.log("not bypass-db")
 // ================================================
 
 // 从secret.json文件里读取数据并转换为Object
@@ -62,5 +62,5 @@ add = function(req, res, next) {
 
   // 前面我们定义了view, add两个函数，现在我们要将它们导出，以供routes使用
 
-// }
+}
 module.exports = { view, add }
