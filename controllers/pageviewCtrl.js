@@ -14,7 +14,14 @@ if(process.argv.indexOf('bypass-db') || process.env.BYPASS_DB) {
 // ================================================
 
 // 从secret.json文件里读取数据并转换为Object
-var secret = JSON.parse(require('fs').readFileSync('secret.json', 'utf8'));
+// var secret = JSON.parse(require('fs').readFileSync('secret.json', 'utf8'));
+var secret = {
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD
+}
+
+
 
 var connection = mysql.createConnection(secret);
 connection.connect();
