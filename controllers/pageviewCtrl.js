@@ -22,7 +22,6 @@ var secret = {
 }
 
 
-
 var connection = mysql.createConnection(secret);
 connection.connect();
 
