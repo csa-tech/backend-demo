@@ -1,4 +1,4 @@
-var mysql      = require('mysql');
+var mysql = require('mysql');
 
 // Ignore these ===================================
 if(process.argv.indexOf('bypass-db') || process.env.BYPASS_DB) {
