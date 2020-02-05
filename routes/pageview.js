@@ -16,6 +16,7 @@ var mysql = require('mysql');
 // ================================================
 
 
+// Standard: 这里一定要用环境变量！！！
 // 从环境变量获取数据库信息
 var secret = {
   host: process.env.HOST,
